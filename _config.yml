@@ -8,11 +8,11 @@ permalink:           pretty
 title:               Jacob Millward
 tagline:             "My personal internet resting place"
 description:         "Home of Jacob Millward's all-natural free-range blog."
-url:                 http://jacob.millward.io
+url:                 http://jacob.millward.dev
 paginate:            5
 paginate_path:       "page:num"
 
 github_url:         http://github.com/jacobmillward
-twitter_url:        http://twitter.com/jacobmillward
+twitter_url:        http://twitter.com/_jacobmillward
 
 include:            "_redirects"
