@@ -42,7 +42,7 @@ params:
     - name: "github"
       url: "https://github.com/JacobMillward"
     - name: "email"
-      url: "mailto://jacob@millward.dev"
+      url: "mailto:jacob@millward.dev"
     - name: "linkedin"
       url: "https://linkedin.com/in/JacobMillward"
     - name: Rss
