@@ -1,0 +1,53 @@
+baseURL: https://jacob.millward.dev/
+languageCode: en-gb
+title: Jacob Millward
+theme: PaperMod
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+menu:
+  main:
+    - name: Blog
+      url: posts/
+      weight: 1
+    - name: Archive
+      url: archive/
+      weight: 2
+    - name: Search
+      url: search/
+      weight: 3
+
+params:
+  defaultTheme: auto
+  hideFooter: true
+  ShowBreadCrumbs: true
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowCodeCopyButtons: true
+
+  profileMode:
+    enabled: true
+    subtitle: A developer in the north of England, with a habit of breaking warranties.
+    #imageUrl: "<image link>" # optional
+    # imageTitle: "<title of image as alt>" # optional
+    # imageWidth: 120 # custom size
+    # imageHeight: 120 # custom size
+    buttons:
+      - name: Blog
+        url: "/posts"
+      - name: Github
+        url: "https://github.com/"
+
+  socialIcons: # optional
+    - name: "github"
+      url: "https://github.com/JacobMillward"
+    - name: "linkedin"
+      url: "https://linkedin.com/in/JacobMillward"
+    - name: "email"
+      url: "mailto://jacob@millward.dev"
+    - name: Rss
+      url: "index.xml"
