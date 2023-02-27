@@ -5,7 +5,7 @@ date: 2015-01-10
 
 Over Christmas I was lucky enough to receive the [iKettle/WifiKettle](http://smarter.am/). When you set it up it creates its own wifi network that you have to connect to, before you can use the mobile app to connect it to your home network (unfortunately 2.4GHz only). A bit clunky but hey it works.
 
-Me being the geek I am the first thing I wanted to know was if I could make my own apps for it. See, the iOS app is great however the android counterpart feels a bit lacking without location features and a clunky interface. And this is only once you manage to get the app to not fail to connect<!--{< cite 1 >}-->. It just feels unfinished.
+Me being the geek I am the first thing I wanted to know was if I could make my own apps for it. See, the iOS app is great however the android counterpart feels a bit lacking without location features and a clunky interface. And this is only once you manage to get the app to not fail to connect[^1]. It just feels unfinished.
 
 Anyway onto the good stuff. I found a great write-up [here](http://www.awe.com/mark/blog/20140223.html) that details the protocol of the kettle. With this info, I went to work creating [these Java classes]({{< githubRef kettleControl >}}).
 
@@ -32,6 +32,4 @@ Next step is to try creating a replacement android app. This will be my first 'p
 
 Stay tuned.
 
----
-
-{{< citation 1 >}}This might've just been due to the kettle being at the edge of my wifi network.{{< /citation >}}
+[^1]:This might've just been due to the kettle being at the edge of my wifi network.
