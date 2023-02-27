@@ -56,3 +56,7 @@ params:
       url: "https://linkedin.com/in/JacobMillward"
     - name: Rss
       url: "index.xml"
+
+  analytics:
+    google:
+      siteVerificationTag: 1YR2u6Z_bXVs7nOG7Ox_meL7CGKhwLS2sd3u8IDLPCk
