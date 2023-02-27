@@ -32,6 +32,8 @@ params:
   ShowPostNavLinks: true
   ShowCodeCopyButtons: true
   ShowRssButtonInSectionTermList: true
+  description: Personal internet resting place of Jacob Millward. Software Developer, technologist, keen drinker of tea.
+  author: Jacob Millward
 
   homeInfoParams:
     title: Jacob Millward
