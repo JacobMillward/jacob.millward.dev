@@ -1,6 +1,7 @@
 ---
 title: My first Ludum Dare experience
 date: 2015-04-20
+tags: ["gamedev"]
 ---
 
 After years of watching [Ludum Dare](http://ludumdare.com/) from the sidelines, I decided to enter #32 and here's what I've learnt so hopefully you don't make the same mistakes. You can view my entry [here](https://web.archive.org/web/20210304225551/http://ludumdare.com/compo/ludum-dare-32/?action=preview&uid=50701).

@@ -1,6 +1,7 @@
 ---
 title: ColdFlame - A C# Game Engine
 date: 2015-09-21
+tags: ["gamedev"]
 ---
 
 It's been a few months since I last posted, but that doesn't mean I haven't been working on anything! In my [last post]({{< relref "../2015-04-20-my-first-ludum-dare-experience/index.md" >}}) I mentioned that I was working on a game engine. As of now, it's at a stage where the basic framework is mostly feature-complete!

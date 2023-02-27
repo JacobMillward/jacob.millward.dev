@@ -1,6 +1,7 @@
 ---
 title: Git 2.3 Push to Deploy
 date: 2015-02-06
+tags: ["git", "infrastructure"]
 ---
 
 Git 2.3 ([Release Notes](https://github.com/gitster/git/blob/v2.3.0/Documentation/RelNotes/2.3.0.txt)) was released today, bringing some exciting new changes. More importantly, it means an easier way to keep your server updated.

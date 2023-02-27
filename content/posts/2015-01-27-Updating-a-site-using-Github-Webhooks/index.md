@@ -1,6 +1,7 @@
 ---
 title: Updating a site using Github Webhooks
 date: 2015-01-27
+tags: ["git", "infrastructure"]
 ---
 >**UPDATE:** You might find [this newer post]({{< relref "2015-02-06-git-push-to-deploy.md" >}}) more helpful.
 

@@ -13,10 +13,16 @@ menu:
   main:
     - name: Archive
       url: archive/
+      weight: 1
+    - name: Tags
+      url: tags/
       weight: 2
     - name: Search
       url: search/
       weight: 3
+
+taxonomies:
+  tag: tags
 
 params:
   defaultTheme: auto
@@ -33,7 +39,7 @@ params:
 
 
       You can find write ups of my ~~fumblings~~ amazing successes below.
-      Alternatively check out my work on Github.
+      Alternatively check out my work on GitHub.
 
 
       Want to hire me? Get in touch.
