@@ -1,7 +1,7 @@
 baseURL: https://jacob.millward.dev/
 languageCode: en-gb
 title: Jacob Millward
-theme: PaperMod
+theme: PaperModX
 
 outputs:
   home:
@@ -14,15 +14,14 @@ menu:
     - name: Archive
       url: archive/
       weight: 1
-    - name: Tags
-      url: tags/
-      weight: 2
     - name: Search
       url: search/
-      weight: 3
+      weight: 2
 
 taxonomies:
   tag: tags
+
+pygmentsUseClasses: true
 
 params:
   defaultTheme: auto
@@ -32,8 +31,12 @@ params:
   ShowPostNavLinks: true
   ShowCodeCopyButtons: true
   ShowRssButtonInSectionTermList: true
+  TocOpen: true
+  TocSide: left
+
   description: Personal internet resting place of Jacob Millward. Software Developer, technologist, keen drinker of tea.
   author: Jacob Millward
+  Email: jacob@millward.dev
 
   homeInfoParams:
     title: Jacob Millward
@@ -48,13 +51,13 @@ params:
       Want to hire me? Get in touch.
 
   socialIcons: # optional
-    - name: "github"
+    - name: "github-simple"
       url: "https://github.com/JacobMillward"
-    - name: "email"
-      url: "mailto:jacob@millward.dev"
-    - name: "linkedin"
+    - name: "linkedin-simple"
       url: "https://linkedin.com/in/JacobMillward"
-    - name: Rss
+    - name: "mdi-email"
+      url: email
+    - name: rss-simple
       url: "index.xml"
 
   analytics:

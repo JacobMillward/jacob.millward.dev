@@ -2,6 +2,7 @@
 title: "Installing Istio With a Helmfile"
 date: 2023-02-27
 tags: ["infrastructure", "istio", "helmfile"]
+showToc: true
 ---
 
 # Intro
