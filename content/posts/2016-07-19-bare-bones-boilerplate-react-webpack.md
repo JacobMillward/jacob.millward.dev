@@ -1,6 +1,7 @@
 ---
 title: Bare-bones boilerplate for React and webpack projects
 date: 2016-07-19
+tags: ["frontend"]
 ---
 
 > ### This is old news, and both the web, world and myself have advanced since this was written. Just use [create-react-app](https://create-react-app.dev/) instead
