@@ -17,7 +17,7 @@ I had a vague idea in my head, something about plants attacking a city. I had no
 
 Because I had no idea where it was going, I soon realised that the scope of what I wanted to make was way beyond my abilities with Unity. After working for the entire first day, and half of the second day, had came up with a rather unimpressive prototype. The city was destructible, and you could spawn seeds that laid down green grass on the right hand side of the screen.
 
-{{<img src="city_seeds.png" alt="My First Attempt">}}
+![My First Attempt](./city_seeds.png)
 
 _Far too much work for little fun_
 

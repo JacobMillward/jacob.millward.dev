@@ -20,7 +20,7 @@ Basically this allows you to send HTTP POST payloads to URLs after configurable 
 
 First of all, I set up Github to send data after a 'push' event (the default).
 
-{{<img src="webhooks.png" alt="Github Webhooks Configuration">}}
+![Github Webhooks Configuration](./webhooks.png)
 
 After doing this, I then set up the deploy.php script on my server. Looked something a little like this.
 ``` php

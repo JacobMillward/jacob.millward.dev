@@ -14,7 +14,7 @@ First distro I tried was [Manjaro](https://manjaro.github.io/) with XFCE. The go
 ## Desktop
 The XFCE desktop is pretty basic, with a bottom panel set up with some applets, and whiskermenu installed. It's usable and functional if a little sparse. All in all, it's something that I might very well have installed if given some time with a base Arch install.
 
-{{<img src="manjaro-0.8.12-xfce.jpg" alt="Manjaro XFCE Desktop" >}}
+![Manjaro XFCE Desktop](./manjaro-0.8.12-xfce.jpg)
 
 *The desktop after startup*
 
@@ -44,7 +44,7 @@ Considering that it's not hit version 1.0 yet, I think it's made good headway in
 After some googling I came across [Antergos](http://antergos.com), a Spanish-developed distro. They offer a choice of 6 different desktops along with a beautiful icon theme from the [numix](https://numixproject.org/) guys. I decided to give it a shot.
 
 ## Installation
-{{<img src="antergos-install.png" alt="Atergos Installer" >}}
+![Antergos Installer](./antergos-install.png)
 
 *The login screen with lightdm-webkit-greeter*
 
@@ -60,7 +60,7 @@ $ sudo -E cnchi -dv
 Once you get it running, it's a really easy process and it even pulls the latest changes as it installs, meaning you don't have to update after you install!
 
 ## Desktop
-{{<img src="lightdm.jpg" alt="Atergos Login Screen" >}}
+![Antergos Login Screen](./lightdm.jpg)
 
 *The login screen with lightdm-webkit-greeter*
 
@@ -68,7 +68,7 @@ The login screen looks amazing, using lightDM with a webkit greeter. Seriously o
 
 I used the Gnome 3 desktop which although I've not been a fan of in the past looks good and works great with some tweaks.
 
-{{<img src="antergos-icons.png" alt="Numix Icons" >}}
+![Numix Icons](./antergos-icons.png)
 
 *Numix application icons*
 
