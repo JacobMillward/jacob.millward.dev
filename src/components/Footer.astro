@@ -1,0 +1,26 @@
+---
+const today = new Date();
+
+interface Props {
+	author: string;
+}
+
+const { author } = Astro.props;
+---
+<hr>
+<footer>
+	&copy; {today.getFullYear()} {author}. All rights reserved.
+	{/* Back to top */}
+	<a href="#top">
+		&uarr;
+		Back to top</a>
+</footer>
+
+<style>
+	footer {
+		display: flex;
+		justify-content: space-between;
+
+		margin-bottom: calc(var(--global-space) * 2);
+	}
+</style>

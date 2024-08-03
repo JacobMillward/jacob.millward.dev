@@ -1,0 +1,101 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+
+const posts = (await getCollection("blog")).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+interface GroupedPost {
+	year: number;
+	months: {
+		index: number;
+		month: string;
+		posts: typeof posts;
+	}[];
+}
+
+const groupedPosts: GroupedPost[] = posts.reduce((acc: GroupedPost[], post) => {
+	const postDate = new Date(post.data.pubDate);
+	const year = postDate.getFullYear();
+	const month = postDate.toLocaleString("default", { month: "long" });
+
+	const yearIndex = acc.findIndex((group) => group.year === year);
+
+	if (yearIndex === -1) {
+		acc.push({
+			year,
+			months: [
+				{
+					index: postDate.getMonth(),
+					month,
+					posts: [post],
+				},
+			],
+		});
+	} else {
+		const monthIndex = acc[yearIndex]!.months.findIndex(
+			(group) => group.month === month,
+		);
+
+		if (monthIndex === -1) {
+			acc[yearIndex]!.months.push({
+				index: postDate.getMonth(),
+				month,
+				posts: [post],
+			});
+		} else {
+			acc[yearIndex]!.months[monthIndex]!.posts.push(post);
+		}
+	}
+
+	return acc;
+}, []);
+---
+
+<BaseLayout>
+    <section>
+        <h1>Archive</h1>
+        <ol>
+            {groupedPosts.map((group, index) => (
+                <li id={`archive-${group.year}`}>
+					<h2>{group.year}</h2>
+                    <ol>
+                        {group.months.map((monthGroup) => (
+                            <li id={`archive-${group.year}-${monthGroup.month}`} class="archive-month-list-item">
+								<h3>{monthGroup.month}</h3>
+                                <ol>
+                                    {monthGroup.posts.map((post) => (
+                                        <li>
+                                            <a href={`/posts/${post.slug}`}>
+												<FormattedDate date={post.data.pubDate} />
+												-
+                                                {post.data.title}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ol>
+                            </li>
+                        ))}
+                    </ol>
+					{index !== groupedPosts.length - 1 && <hr />}
+                </li>
+            ))}
+        </ol>
+    </section>
+</BaseLayout>
+
+<style>
+	ol {
+		padding-left: 0;
+
+		li::before {
+			content: unset;
+		}
+	}
+
+	.archive-month-list-item {
+		margin-bottom: calc(var(--global-space) * 2);
+	}
+</style>

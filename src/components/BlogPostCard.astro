@@ -1,0 +1,52 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+
+export interface Props {
+    post: {
+        data: {
+            title: string;
+            description: string;
+            pubDate: Date;
+        };
+        slug: string;
+    };
+}
+
+const { post } = Astro.props;
+const { title, pubDate, description } = post.data;
+---
+
+<article class="terminal-card">
+    <header>
+        <h2>{title}</h2>
+        <FormattedDate date={pubDate} />
+    </header>
+    <div class="card-body">
+        {description}
+        <button class="btn btn-secondary">
+            <a href={`/posts/${post.slug}`}>Read Post</a>
+        </button>
+    </div>
+</article>
+
+<style>
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--global-space);
+
+        h2 {
+            margin: 0;
+        }
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+
+        button {
+            margin-left: auto;
+        }
+    }
+</style>
