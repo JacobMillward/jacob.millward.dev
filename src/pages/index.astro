@@ -161,7 +161,12 @@ const posts = (await getCollection("blog"))
 
 	ul.social {
 		display: flex;
-		padding: 0;
+		/* padding: 0; */
+		gap: var(--global-space);
+
+		li {
+			margin: 0;
+		}
 	}
 
 	@media (min-width: 768px) {
