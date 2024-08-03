@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
+import TagList from "./TagList.astro";
 
 export interface Props {
     post: CollectionEntry<'blog'>;
@@ -35,11 +36,7 @@ const { title, pubDate, updatedDate, description, tags } = post.data;
                 <>
                     <dt>tags</dt>
                     <dd>
-                        <ul class="tags">
-                            {tags.map((tag) => (
-                                <li><a href={`/tags/${tag}`}>{tag}</a></li>
-                            ))}
-                        </ul>
+                        <TagList tags={tags} />
                     </dd>
                 </>
             )}
@@ -76,24 +73,6 @@ const { title, pubDate, updatedDate, description, tags } = post.data;
 
         .btn {
             margin-left: auto;
-        }
-    }
-
-    .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-
-        li {
-            padding: 0;
-
-            &::before {
-                content: "#";
-            }
-
-            &::after {
-                content: unset;
-            }
         }
     }
 
