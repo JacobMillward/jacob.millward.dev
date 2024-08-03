@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import { SITE_TITLE } from "../consts";
 import BlogPostCard from "../components/BlogPostCard.astro";
 
 const posts = (await getCollection("blog"))
@@ -11,7 +10,6 @@ const posts = (await getCollection("blog"))
 
 <BaseLayout>
 	<section>
-		<h1>{SITE_TITLE}</h1>
 		<p>
 			I’m a developer in the north of England, with a habit of breaking
 			warranties.
@@ -48,7 +46,7 @@ const posts = (await getCollection("blog"))
 		h2 {
 			margin: 0;
 		}
-		
+
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
