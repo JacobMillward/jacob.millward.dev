@@ -1,0 +1,86 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+import TagList from "./TagList.astro";
+
+export interface Props {
+    post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, pubDate, updatedDate, description, tags } = post.data;
+---
+
+<article class="terminal-card">
+    <header>
+        <h2>
+            <a href={`/posts/${post.slug}`}>{title}</a>
+        </h2>
+    </header>
+    <div class="card-body">
+        <dl>
+            <dt>published</dt>
+            <dd><FormattedDate date={pubDate} /></dd>
+
+            {updatedDate && (
+                <>
+                    <dt>updated</dt>
+                    <dd><FormattedDate date={updatedDate} /></dd>
+                </>
+            )}
+
+            <dt>description</dt>
+            <dd>{description}</dd>
+
+            { tags && (
+                <>
+                    <dt>tags</dt>
+                    <dd>
+                        <TagList tags={tags} />
+                    </dd>
+                </>
+            )}
+
+        </dl>
+
+        <a class="btn btn-default" href={`/posts/${post.slug}`}>Read more</a>
+    </div>
+</article>
+
+<style>
+    header {
+        h2 {
+            margin: 0;
+        }
+
+        a {
+            color: var(--invert-font-color);
+        }
+    }
+    dl {
+        display: flex;
+        flex-direction: column;
+
+        dt {
+            font-weight: bold;
+            overflow-wrap: normal;
+        }
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+
+        .btn {
+            margin-left: auto;
+        }
+    }
+
+    @media (min-width: 768px) {
+        dl {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            gap: 0.5rem;
+        }
+    }
+</style>

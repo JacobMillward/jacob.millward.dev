@@ -1,24 +1,22 @@
 # https://jacob.millward.dev
 
 This is the repository that hosts the content at https://jacob.millward.dev.
-It is a site built with Hugo and the PaperModX theme. It's built using GitHub Actions and hosted on GitHub Pages.
+It is a site built with [Astro](https://astro.build/).
 
 ## Development
 
 ### Prerequisites
-- [Hugo](https://gohugo.io/getting-started/installing/)
+- [Node.js](https://nodejs.org/en/)
+- [pnpm](https://pnpm.io/)
 
-Pull the repo, and be sure to initialize the theme submodule:
+Pull the repo, and install the dependencies:
 ```bash
-git submodule update --init --recursive
+pnpm install
 ```
 
-You can run the site locally with:
+You can start the development server with:
 ```bash
-hugo serve
+pnpm dev
 ```
 
-To create new a new post:
-```bash
-hugo new content /posts/<post-name>.md
-```
+To create new a new post create a new markdown file in the `src/content/posts` directory.

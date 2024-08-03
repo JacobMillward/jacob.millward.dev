@@ -1,0 +1,48 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import BaseLayout from "./BaseLayout.astro";
+import TableOfContents from "../components/TableOfContents.astro";
+import type { MarkdownHeading } from "astro";
+import TagList from "../components/TagList.astro";
+
+type Props = {
+	headings: MarkdownHeading[];
+	data: CollectionEntry<'blog'>['data'];
+}
+
+const { headings, data: { title, pubDate, updatedDate, tags } } = Astro.props;
+---
+
+<BaseLayout>
+	<article>
+		<header>
+			<FormattedDate date={pubDate} />
+
+			{
+				updatedDate && (<>
+						Last updated on{" "}
+						<FormattedDate date={updatedDate} />
+					</>
+				)
+			}
+			<h1 class="terminal-prompt">{title}</h1>
+			{tags && <TagList tags={tags} />}
+			<TableOfContents headings={headings} />
+			<hr>
+		</header>
+		<div class="content">
+			<slot />
+		</div>
+	</article>
+</BaseLayout>
+
+<style>
+	h1 {
+		margin: 0;
+	}
+
+	hr {
+		margin-top: 0;
+	}
+</style>

@@ -1,0 +1,66 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+
+
+export async function getStaticPaths() {
+    // Create map of tag to list of posts
+    const posts = await getCollection('blog');
+    const tags = new Map<string, CollectionEntry<'blog'>[]>();
+    posts.forEach((post) => {
+        post.data.tags?.forEach((tag) => {
+            if (!tags.has(tag)) {
+                tags.set(tag, []);
+            }
+            tags.get(tag)?.push(post);
+        });
+    });
+
+    return Array.from(tags.entries()).map(([tag, posts]) => ({
+        params: { slug: tag },
+        props: {
+            posts: posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+            tag
+        },
+    }));
+}
+
+type Props = {
+    posts: CollectionEntry<'blog'>[];
+    tag: string;
+}
+
+const { posts, tag } = Astro.props;
+---
+<BaseLayout>
+    <h1>Posts tagged with <code>{tag}</code></h1>
+    <p>
+        <a href="/tags">All tags</a>
+    </p>
+    <ul>
+        {posts?.map((post) => (
+            <li>
+                <BlogPostCard post={post} />
+            </li>
+        ))}
+    </ul>
+</BaseLayout>
+
+<style>
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        &::after {
+            content: unset;
+        }
+        padding: 0;
+
+        & + li {
+            margin-top: calc(var(--global-space) * 3);
+        }
+    }
+</style>

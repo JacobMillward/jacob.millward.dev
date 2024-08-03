@@ -1,4 +1,0 @@
-<!-- Github Link-->
-{{- $githubUrl := (index (where .Site.Params.SocialIcons "name" "github") 0).url
-}} {{- if $githubUrl }} {{$githubUrl}}/{{ .Get 0 }} {{- else }} {{$githubUrl}}
-{{- end }}

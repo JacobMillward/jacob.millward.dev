@@ -1,8 +1,0 @@
----
-title: "Search" # in any language you want
-layout: "search" # is necessary
-url: "/search"
-description: "Uncover secrets, or maybe just blog posts and articles"
-summary: "search"
-placeholder: "Type here to search"
----

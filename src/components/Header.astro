@@ -1,0 +1,43 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_TITLE } from "../consts";
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
+<header>
+	<div class="terminal-logo">
+		<div class="logo terminal-prompt">
+			<a class="no-style" href="/">{SITE_TITLE}</a>
+		</div>
+	</div>
+	<nav class="terminal-menu">
+		<ul class="terminal-menu">
+			<HeaderLink href="/archive">Archive</HeaderLink>
+			<li><ThemeToggle /></li>
+		</ul>
+	</nav>
+</header>
+
+<style>
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: var(--global-space);
+	}
+	.terminal-menu ul {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin: 0;
+		gap: var(--global-space);
+
+		li {
+			margin: 0;
+
+			&:first-child {
+				margin-left: auto;
+			}
+		}
+	}
+</style>

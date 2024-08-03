@@ -1,0 +1,66 @@
+---
+import type { MarkdownHeading } from "astro";
+
+export interface Props {
+    headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+
+const shouldRender = headings.length > 0;
+---
+
+{
+    shouldRender && (
+        <nav>
+            <h2>Table of Contents</h2>
+            {(function renderHeadings(
+                headings: MarkdownHeading[],
+                currentDepth: number = 1,
+            ): any {
+                const items = [];
+                for (let i = 0; i < headings.length; i++) {
+                    const heading = headings[i]!;
+                    if (heading.depth === currentDepth) {
+                        const subHeadings = [];
+                        let j = i + 1;
+                        while (j < headings.length) {
+                            const subHeading = headings[j];
+                            if (subHeading && subHeading.depth > currentDepth) {
+                                subHeadings.push(subHeading);
+                                j++;
+                            } else {
+                                break;
+                            }
+                        }
+                        items.push(
+                            <li>
+                                <a href={`#${heading.slug}`}>{heading.text}</a>
+                                {subHeadings.length > 0 &&
+                                    renderHeadings(
+                                        subHeadings,
+                                        currentDepth + 1,
+                                    )}
+                            </li>,
+                        );
+                    }
+                }
+                return items.length > 0 ? <ol>{items}</ol> : null;
+            })(headings)}
+        </nav>
+    )
+}
+
+<style>
+    nav {
+        h2 {
+            font-weight: normal;
+        }
+
+        border: 1px dashed var(--secondary-color);
+        padding: 1rem;
+        width: max-content;
+        max-width: 100%;
+        margin-bottom: calc(var(--global-space) * 4);
+    }
+</style>
