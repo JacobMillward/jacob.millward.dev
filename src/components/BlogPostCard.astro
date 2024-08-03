@@ -37,7 +37,9 @@ const { title, pubDate, updatedDate, description, tags } = post.data;
                     <dd>
                         <ul class="tags">
                             {tags.map((tag) => (
-                                <li>{tag}</li>
+                                <li>
+                                    <a href={`/tags/${tag}`}>{tag}</a>
+                                </li>
                             ))}
                         </ul>
                     </dd>
