@@ -1,43 +1,71 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 
 export interface Props {
-    post: {
-        data: {
-            title: string;
-            description: string;
-            pubDate: Date;
-        };
-        slug: string;
-    };
+    post: CollectionEntry<'blog'>;
 }
 
 const { post } = Astro.props;
-const { title, pubDate, description } = post.data;
+const { title, pubDate, updatedDate, description, tags } = post.data;
 ---
 
 <article class="terminal-card">
     <header>
-        <h2>{title}</h2>
-        <FormattedDate date={pubDate} />
+        <h2>
+            <a href={`/posts/${post.slug}`}>{title}</a>
+        </h2>
     </header>
     <div class="card-body">
-        {description}
-        <button class="btn btn-secondary">
-            <a href={`/posts/${post.slug}`}>Read Post</a>
-        </button>
+        <dl>
+            <dt>published</dt>
+            <dd><FormattedDate date={pubDate} /></dd>
+
+            {updatedDate && (
+                <>
+                    <dt>updated</dt>
+                    <dd><FormattedDate date={updatedDate} /></dd>
+                </>
+            )}
+
+            <dt>description</dt>
+            <dd>{description}</dd>
+
+            { tags && (
+                <>
+                    <dt>tags</dt>
+                    <dd>
+                        <ul class="tags">
+                            {tags.map((tag) => (
+                                <li>{tag}</li>
+                            ))}
+                        </ul>
+                    </dd>
+                </>
+            )}
+
+        </dl>
+        <a class="btn btn-default" href={`/posts/${post.slug}`}>Read more</a>
     </div>
 </article>
 
 <style>
     header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: var(--global-space);
-
         h2 {
             margin: 0;
+        }
+
+        a {
+            color: var(--invert-font-color);
+        }
+    }
+    dl {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.5rem;
+
+        dt {
+            font-weight: bold;
         }
     }
 
@@ -45,8 +73,27 @@ const { title, pubDate, description } = post.data;
         display: flex;
         flex-direction: column;
 
-        button {
+        .btn {
             margin-left: auto;
+        }
+    }
+
+    .tags {
+        display: flex;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+
+        li {
+            padding: 0;
+
+            &::before {
+                content: "#";
+            }
+
+            &::after {
+                content: unset;
+            }
         }
     }
 </style>

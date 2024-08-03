@@ -45,6 +45,10 @@ const posts = (await getCollection("blog"))
 
 <style>
 	header#blog-post-header {
+		h2 {
+			margin: 0;
+		}
+		
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -60,6 +64,9 @@ const posts = (await getCollection("blog"))
 			content: unset;
 		}
 		padding: 0;
-		margin-bottom: var(--global-space);
+		
+		& + li {
+			margin-top: calc(var(--global-space) * 3);
+		}
 	}
 </style>
