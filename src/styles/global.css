@@ -1,9 +1,0 @@
-.tippy-box[data-theme="default"] {
-    background-color: var(--font-color);
-    color: var(--invert-font-color);
-    border-radius: 0;
-
-    .tippy-arrow {
-        color: var(--font-color);
-    }
-}

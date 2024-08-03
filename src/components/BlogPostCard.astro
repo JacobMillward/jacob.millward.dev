@@ -60,12 +60,12 @@ const { title, pubDate, updatedDate, description, tags } = post.data;
         }
     }
     dl {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 0.5rem;
+        display: flex;
+        flex-direction: column;
 
         dt {
             font-weight: bold;
+            overflow-wrap: normal;
         }
     }
 
@@ -80,6 +80,7 @@ const { title, pubDate, updatedDate, description, tags } = post.data;
 
     .tags {
         display: flex;
+        flex-wrap: wrap;
         gap: 0.5rem;
         list-style: none;
         padding: 0;
@@ -94,6 +95,14 @@ const { title, pubDate, updatedDate, description, tags } = post.data;
             &::after {
                 content: unset;
             }
+        }
+    }
+
+    @media (min-width: 768px) {
+        dl {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            gap: 0.5rem;
         }
     }
 </style>

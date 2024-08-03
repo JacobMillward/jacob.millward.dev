@@ -3,7 +3,6 @@
 // all pages through the use of the <BaseHead /> component.
 import "terminal.css";
 import { Tooltips } from "astro-tooltips";
-import '../styles/global.css';
 
 interface Props {
 	title: string;
@@ -17,8 +16,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const {
 	title,
 	description,
-	author,
-	image = "/blog-placeholder-1.jpg",
+	author
 } = Astro.props;
 ---
 
@@ -44,13 +42,22 @@ const {
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 <Tooltips interactive={true} delay={[500, 500]} />
+<style is:global>
+	.tippy-box[data-theme="default"] {
+		background-color: var(--font-color);
+		color: var(--invert-font-color);
+		border-radius: 0;
+
+		.tippy-arrow {
+			color: var(--font-color);
+		}
+	}
+</style>

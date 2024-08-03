@@ -9,45 +9,63 @@ const posts = (await getCollection("blog"))
 ---
 
 <BaseLayout>
-	<section>
-		<p>
-			I’m a developer in the north of England, with a habit of breaking
-			warranties.
-		</p>
-		<p>
-			You can find write ups of my <del>fumblings</del> amazing successes below.
-			Alternatively check out my work on GitHub.
-		</p>
-		<p>Want to hire me? Get in touch.</p>
-	</section>
+	<div class="grid">
+		<section id="bio">
+			<h1>Hi, I&rsquo;m Jacob.</h1>
+			<p>
+				I&rsquo;m a developer in the north of England, with a habit of
+				breaking warranties.
+			</p>
+			<p>
+				You can find write ups of my <del>fumblings</del> amazing successes
+				below. Alternatively check out my work on GitHub.
+			</p>
+			<p>Want to hire me? Get in touch.</p>
+		</section>
 
-	<section id="blog-posts" aria-label="Blog posts">
-		<header id="blog-post-header">
-			<h2>Latest Blog Posts</h2>
-			<button class="btn btn-default btn-ghost">
-				<a href="/archive">View all posts</a>
-			</button>
-		</header>
+		<section id="blog-posts" aria-label="Blog posts">
+			<header id="blog-post-header">
+				<h1>Latest Blog Posts</h1>
+				<button class="btn btn-default btn-ghost">
+					<a href="/archive">View all posts</a>
+				</button>
+			</header>
 
-		<ul>
-			{
-				posts.map((post) => (
-					<li>
-						<BlogPostCard post={post} />
-					</li>
-				))
-			}
-		</ul>
-	</section>
+			<ul>
+				{
+					posts.map((post) => (
+						<li>
+							<BlogPostCard post={post} />
+						</li>
+					))
+				}
+			</ul>
+		</section>
+	</div>
 </BaseLayout>
 
 <style>
+	.grid {
+		display: flex;
+		flex-direction: column;
+	}
+
+	section {
+		border: 1px dashed var(--secondary-color);
+		padding: calc(var(--global-space) * 2);
+
+		& + section {
+			margin-top: calc(var(--global-space) * 4);
+		}
+	}
+
 	header#blog-post-header {
 		h2 {
 			margin: 0;
 		}
 
 		display: flex;
+		flex-direction: column;;
 		justify-content: space-between;
 		align-items: center;
 	}
@@ -62,9 +80,15 @@ const posts = (await getCollection("blog"))
 			content: unset;
 		}
 		padding: 0;
-		
+
 		& + li {
 			margin-top: calc(var(--global-space) * 3);
 		}
 	}
+
+	@media (min-width: 768px) {
+		header#blog-post-header {
+        	flex-direction: row;
+		}	
+    }
 </style>
