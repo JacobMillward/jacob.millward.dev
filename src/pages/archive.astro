@@ -69,7 +69,7 @@ const groupedPosts: GroupedPost[] = posts.reduce((acc: GroupedPost[], post) => {
                                     {monthGroup.posts.map((post) => (
                                         <li>
                                             <a href={`/posts/${post.slug}`}>
-												<FormattedDate date={post.data.pubDate} />
+												<FormattedDate date={post.data.pubDate} data-tooltip-placement="top" />
 												-
                                                 {post.data.title}
                                             </a>
