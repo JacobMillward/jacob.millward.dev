@@ -35,6 +35,9 @@ const { posts, tag } = Astro.props;
 ---
 <BaseLayout>
     <h1>Posts tagged with <code>{tag}</code></h1>
+    <p>
+        <a href="/tags">All tags</a>
+    </p>
     <ul>
         {posts?.map((post) => (
             <li>
