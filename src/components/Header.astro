@@ -1,6 +1,7 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header>
@@ -12,6 +13,7 @@ import { SITE_TITLE } from "../consts";
 	<nav class="terminal-menu">
 		<ul class="terminal-menu">
 			<HeaderLink href="/archive">Archive</HeaderLink>
+			<li><ThemeToggle /></li>
 		</ul>
 	</nav>
 </header>
