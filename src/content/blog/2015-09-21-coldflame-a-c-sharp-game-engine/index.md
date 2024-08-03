@@ -1,6 +1,6 @@
 ---
 title: ColdFlame - A C# Game Engine
-description: ColdFlame - A C# Game Engine
+description: A simple game engine written in C#
 pubDate: 2015-09-21
 tags: ["gamedev"]
 ---

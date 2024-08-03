@@ -1,9 +1,7 @@
 ---
 title: Arch Linux derivatives
-description: Arch Linux derivatives
+description: A look at Manjaro and Antergos
 pubDate: 2015-06-05
-ShowToc: true
-TocOpen: true
 ---
 
 Arch Linux is by far my favourite distro not least because its rolling-release update system means I'm always running the latest and greatest. However, setting up a graphical desktop system and installing some base apps is boring and tedious work. So whilst installing it onto my [Macbook Air (Mid 2013, "6,2")](https://wiki.archlinux.org/index.php/MacBook#Mid_2013_13.22_-_Version_6.2C2) I decided to forgo that busywork and check out the distros that have done that for me. I'll be showing you two distros that I checked out, Manjaro and Antergos.
