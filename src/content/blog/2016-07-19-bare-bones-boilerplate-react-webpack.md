@@ -7,7 +7,7 @@ tags: ["frontend"]
 
 > **This is old news, and both the web, world and myself have advanced since this was written. Just use [create-react-app](https://create-react-app.dev/) instead**
 
-**tldr; [Here it is.](githubRef react-starter>}})**
+**tldr; [Here it is.](https://github.com/JacobMillward/react-starter)**
 
 In my endeavours to get to grips with front-end JS development, I did some research and decided to launch into learning [React](https://facebook.github.io/react) by Facebook. This in turn introduced me to the huge complicated mess that is _front-end tooling_.
 
