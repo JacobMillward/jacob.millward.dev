@@ -1,57 +1,25 @@
 ---
 interface Props {
-    date: Date;
+	date: Date;
 }
 
 const { date } = Astro.props;
 ---
 
-<time datetime={date.toISOString()} aria-describedby="tooltip">
-    {
-        date.toLocaleDateString('en-us', {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric',
-        })
-    }
-    <span id="tooltip" role="tooltip" class="tooltip">
-        {date.toISOString()}
-    </span>
-</time>
+<div>
+	<time datetime={date.toISOString()} title={date.toISOString()}>
+		{
+			date.toLocaleDateString("en-us", {
+				year: "numeric",
+				month: "short",
+				day: "numeric",
+			})
+		}
+	</time>	
+</div>
 
 <style>
-    time {
-        position: relative;
-        display: inline-block;
-		border-bottom: 1px dotted var(--font-color);
-
-		--tooltip-background-color: var(--font-color);
-    }
-    .tooltip {
-        position: absolute;
-        bottom: 120%;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 0.5rem;
-        background-color: var(--tooltip-background-color);
-        color: var(--invert-font-color);
-        white-space: nowrap;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-        pointer-events: none;
-    }
-    .tooltip::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        border-style: solid;
-        border-width: 0.5rem;
-        border-color: var(--tooltip-background-color) transparent transparent transparent;
-        top: 100%;
-    }
-    time:hover .tooltip,
-    time:focus .tooltip {
-        opacity: 1;
-    }
+	time {
+		cursor: pointer;
+	}
 </style>

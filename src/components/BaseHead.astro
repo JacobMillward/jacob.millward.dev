@@ -1,7 +1,9 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import 'terminal.css';
+import "terminal.css";
+import { Tooltips } from "astro-tooltips";
+import '../styles/global.css';
 
 interface Props {
 	title: string;
@@ -12,13 +14,18 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, author, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const {
+	title,
+	description,
+	author,
+	image = "/blog-placeholder-1.jpg",
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="light dark" />
 <link rel="icon" href="/favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
@@ -46,3 +53,4 @@ const { title, description, author, image = '/blog-placeholder-1.jpg' } = Astro.
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
+<Tooltips interactive={true} delay={[500, 500]} />
