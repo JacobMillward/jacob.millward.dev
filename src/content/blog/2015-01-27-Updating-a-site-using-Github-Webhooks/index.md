@@ -1,6 +1,6 @@
 ---
 title: Updating a site using Github Webhooks
-description: Updating a site using Github Webhooks
+description: Automating the deployment of a site using Github Webhooks
 pubDate: 2015-01-27
 tags: ["git", "infrastructure"]
 ---

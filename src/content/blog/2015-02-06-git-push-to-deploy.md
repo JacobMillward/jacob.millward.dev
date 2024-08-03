@@ -1,6 +1,6 @@
 ---
-title: Git 2
-description: Git 2.3 Push to Deploy
+title: Git 2.3 Push to Deploy
+description: Enabling push-to-deploy on your server with Git 2.3
 pubDate: 2015-02-06
 tags: ["git", "infrastructure"]
 ---

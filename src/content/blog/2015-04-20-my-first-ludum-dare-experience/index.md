@@ -1,6 +1,6 @@
 ---
 title: My first Ludum Dare experience
-description: My first Ludum Dare experience
+description: A post-mortem of my first Ludum Dare entry
 pubDate: 2015-04-20
 tags: ["gamedev"]
 ---
@@ -9,7 +9,7 @@ After years of watching [Ludum Dare](http://ludumdare.com/) from the sidelines, 
 
 After learning the theme at 2am on Saturday, I took a nap until 9am so I could be refreshed and creative when I woke up. I started working by 10am. Hence my first mistake:
 
-## 1. Think about your Game Idea
+# 1. Think about your Game Idea
 
 ---
 
@@ -24,7 +24,7 @@ _Far too much work for little fun_
 I decided that my idea was taking far too long, and it still wasn't anywhere near fun to play. I pulled the plug and started work on a simpler idea (the one I ended up submitting).
 **I could have started work on my final game much sooner if I had spent more time thinking about what I wanted to create instead of launching headlong into it.**
 
-## 2. Know your engine
+# 2. Know your engine
 
 ---
 
@@ -32,7 +32,7 @@ I decided that my idea was taking far too long, and it still wasn't anywhere nea
 
 Although I was familiar with the work flow, I got hung up on the basic things I didn't know, such as animations or the quirks of trying to get pixel perfect 2D in Unity. **So much of my time was spent learning, eating into the time I spent creating**. In fact, my first idea may have come to fruition if I had known what I was doing!
 
-## 3. Quick hacks are your enemy
+# 3. Quick hacks are your enemy
 
 ---
 
@@ -44,7 +44,7 @@ As such my trying to nail down bugs in those last few hours is a nightmare. In f
 
 _I feel very much like Cueball in Friday's xkcd._
 
-## What I take away from this
+# What I take away from this
 
 ---
 

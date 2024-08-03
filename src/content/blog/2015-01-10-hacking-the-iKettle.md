@@ -1,6 +1,6 @@
 ---
 title: Hacking the iKettle
-description: Hacking the iKettle
+description: Creating a Java library to control the iKettle by SmarterAppliances
 pubDate: 2015-01-10
 tags: ["iot", "reverse-engineering"]
 ---
