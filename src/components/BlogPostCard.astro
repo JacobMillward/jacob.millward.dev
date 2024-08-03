@@ -37,9 +37,7 @@ const { title, pubDate, updatedDate, description, tags } = post.data;
                     <dd>
                         <ul class="tags">
                             {tags.map((tag) => (
-                                <li>
-                                    <a href={`/tags/${tag}`}>{tag}</a>
-                                </li>
+                                <li><a href={`/tags/${tag}`}>{tag}</a></li>
                             ))}
                         </ul>
                     </dd>
@@ -47,6 +45,7 @@ const { title, pubDate, updatedDate, description, tags } = post.data;
             )}
 
         </dl>
+
         <a class="btn btn-default" href={`/posts/${post.slug}`}>Read more</a>
     </div>
 </article>
@@ -84,8 +83,6 @@ const { title, pubDate, updatedDate, description, tags } = post.data;
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-        list-style: none;
-        padding: 0;
 
         li {
             padding: 0;

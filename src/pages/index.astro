@@ -116,7 +116,7 @@ const posts = (await getCollection("blog"))
 		<ul>
 			{
 				posts.map((post) => (
-					<li>
+					<li class="blog-post">
 						<BlogPostCard post={post} />
 					</li>
 				))
@@ -153,7 +153,7 @@ const posts = (await getCollection("blog"))
 			}
 			padding: 0;
 
-			& + li {
+			&.blog-post + li.blog-post {
 				margin-top: calc(var(--global-space) * 3);
 			}
 		}
