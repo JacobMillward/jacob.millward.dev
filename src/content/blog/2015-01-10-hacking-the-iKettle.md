@@ -9,7 +9,7 @@ Over Christmas I was lucky enough to receive the [iKettle/WifiKettle](http://sma
 
 Me being the geek I am the first thing I wanted to know was if I could make my own apps for it. See, the iOS app is great however the android counterpart feels a bit lacking without location features and a clunky interface. And this is only once you manage to get the app to not fail to connect[^1]. It just feels unfinished.
 
-Anyway onto the good stuff. I found a great write-up [here](http://www.awe.com/mark/blog/20140223.html) that details the protocol of the kettle. With this info, I went to work creating [these Java classes]({{< githubRef kettleControl >}}).
+Anyway onto the good stuff. I found a great write-up [here](http://www.awe.com/mark/blog/20140223.html) that details the protocol of the kettle. With this info, I went to work creating [these Java classes](https://github.com/jacobmillward/kettleControl).
 
 This is the math for decoding the status when you explicitly ask for it. For some reason it's all encoded into a single byte, whereas asynchronous status updates are given status codes.
 

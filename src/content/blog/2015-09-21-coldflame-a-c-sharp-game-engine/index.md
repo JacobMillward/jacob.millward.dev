@@ -5,7 +5,7 @@ pubDate: 2015-09-21
 tags: ["gamedev"]
 ---
 
-It's been a few months since I last posted, but that doesn't mean I haven't been working on anything! In my [last post]({{< relref "../2015-04-20-my-first-ludum-dare-experience/index.md" >}}) I mentioned that I was working on a game engine. As of now, it's at a stage where the basic framework is mostly feature-complete!
+It's been a few months since I last posted, but that doesn't mean I haven't been working on anything! In my [last post](./2015-04-20-my-first-ludum-dare-experience) I mentioned that I was working on a game engine. As of now, it's at a stage where the basic framework is mostly feature-complete!
 
 ![Basic, but functional](coldflame-example.png)
 
@@ -18,4 +18,4 @@ In theory, this clear separation of data and behaviour means that you can write 
 
 It isn't perfect, the code needs documentation, and there is still a long way to go but feel free to take a look. Contributions are welcome, just send a pull request!
 
-**View the Github Repository for ColdFlame [here]({{< githubRef Coldflame-Engine >}})**
+**View the Github Repository for ColdFlame [here](https://github.com/jacobmillward/Coldflame-Engine)**

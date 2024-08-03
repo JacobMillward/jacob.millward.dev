@@ -25,7 +25,7 @@ const { headings, data: { title, pubDate, updatedDate } } = Astro.props;
 					</>
 				)
 			}
-			<h1>{title}</h1>
+			<h1 class="terminal-prompt">{title}</h1>
 			<TableOfContents headings={headings} />
 			<hr>
 		</header>
@@ -34,3 +34,13 @@ const { headings, data: { title, pubDate, updatedDate } } = Astro.props;
 		</div>
 	</article>
 </BaseLayout>
+
+<style>
+	h1 {
+		margin: 0;
+	}
+
+	hr {
+		margin-top: 0;
+	}
+</style>

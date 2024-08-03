@@ -28,7 +28,7 @@ I decided that my idea was taking far too long, and it still wasn't anywhere nea
 
 ---
 
-[My in-progress game engine]({{< githubRef Coldflame-Engine >}}) is still nowhere near ready for anything, so I decided to use [Unity](http://unity3d.com), thinking that I'd messed with it a bit in the past and therefore I could easily make a game in it.
+[My in-progress game engine](https://github.com/jacobmillward/Coldflame-Engine) is still nowhere near ready for anything, so I decided to use [Unity](http://unity3d.com), thinking that I'd messed with it a bit in the past and therefore I could easily make a game in it.
 
 Although I was familiar with the work flow, I got hung up on the basic things I didn't know, such as animations or the quirks of trying to get pixel perfect 2D in Unity. **So much of my time was spent learning, eating into the time I spent creating**. In fact, my first idea may have come to fruition if I had known what I was doing!
 
