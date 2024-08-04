@@ -13,10 +13,12 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^3.1.9",
+    "@astrojs/preact": "^3.5.3",
     "@astrojs/rss": "^4.0.9",
     "@astrojs/sitemap": "^3.2.1",
     "astro": "^4.16.8",
     "astro-tooltips": "^0.6.2",
+    "preact": "^10.23.1",
     "sharp": "^0.33.4",
     "terminal.css": "^0.7.5",
     "typescript": "^5.5.4"
