@@ -32,6 +32,9 @@ importers:
       preact:
         specifier: ^10.23.1
         version: 10.23.1
+      sass:
+        specifier: ^1.77.8
+        version: 1.77.8
       sharp:
         specifier: ^0.33.4
         version: 0.33.4
@@ -3061,7 +3064,6 @@ snapshots:
     dependencies:
       normalize-path: 3.0.0
       picomatch: 2.3.1
-    optional: true
 
   arg@5.0.2: {}
 
@@ -3170,8 +3172,7 @@ snapshots:
 
   base-64@1.0.0: {}
 
-  binary-extensions@2.3.0:
-    optional: true
+  binary-extensions@2.3.0: {}
 
   boolbase@1.0.0: {}
 
@@ -3224,7 +3225,6 @@ snapshots:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.3
-    optional: true
 
   chokidar@4.0.1:
     dependencies:
@@ -3672,8 +3672,7 @@ snapshots:
 
   http-cache-semantics@4.1.1: {}
 
-  immutable@4.3.7:
-    optional: true
+  immutable@4.3.7: {}
 
   import-meta-resolve@4.1.0: {}
 
@@ -3693,7 +3692,6 @@ snapshots:
   is-binary-path@2.1.0:
     dependencies:
       binary-extensions: 2.3.0
-    optional: true
 
   is-core-module@2.15.0:
     dependencies:
@@ -4269,8 +4267,7 @@ snapshots:
 
   node-releases@2.0.18: {}
 
-  normalize-path@3.0.0:
-    optional: true
+  normalize-path@3.0.0: {}
 
   nth-check@2.1.1:
     dependencies:
@@ -4396,7 +4393,6 @@ snapshots:
   readdirp@3.6.0:
     dependencies:
       picomatch: 2.3.1
-    optional: true
 
   readdirp@4.0.2: {}
 
@@ -4606,7 +4602,6 @@ snapshots:
       chokidar: 3.6.0
       immutable: 4.3.7
       source-map-js: 1.2.1
-    optional: true
 
   sax@1.4.1: {}
 
