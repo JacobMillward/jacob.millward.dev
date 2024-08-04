@@ -1,15 +1,11 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import { SITE_TITLE } from "../consts";
 import ThemeToggle from "./ThemeToggle.astro";
+import SiteTitleLogo from "./SiteTitleLogo.astro";
 ---
 
 <header>
-	<div class="terminal-logo">
-		<div class="logo terminal-prompt">
-			<a class="no-style" href="/">{SITE_TITLE}</a>
-		</div>
-	</div>
+	<SiteTitleLogo />
 	<nav class="terminal-menu">
 		<ul class="terminal-menu">
 			<HeaderLink href="/archive">Archive</HeaderLink>
@@ -24,6 +20,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 		justify-content: space-between;
 		align-items: center;
 		margin-top: var(--global-space);
+		width: 100%;
 	}
 	.terminal-menu ul {
 		display: flex;

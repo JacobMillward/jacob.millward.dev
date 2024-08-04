@@ -1,0 +1,97 @@
+---
+import { SITE_TITLE } from "../consts";
+
+---
+<div class="terminal-logo">
+    <div class="logo terminal-prompt">
+        <a class="no-style logo-text" href="/">{SITE_TITLE}</a>
+    </div>
+</div>
+
+<style>
+    .terminal-logo {
+        width: 70%;
+        min-width: 200px;
+        height: 6rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .terminal-prompt {
+        white-space: wrap;
+    }
+</style>
+
+<script>
+    const random_texts = [
+        "Hello, World!",
+        "L33t H4x0r",
+        "404 Joke Not Found",
+        "There is no place like ::1",
+        "I teach rocks to think",
+        "🖥️ 🔍 🧠",
+        "This is not a simulation",
+        "🤖 🌌 🐑",
+        "Just call it V1.0 and see if it works",
+        "Deploy at 5pm Friday, what could go wrong?",
+        "There is no cow level",
+        "The real world has so much tech debt",
+        "Hans shot first",
+        "Scrum is just waterfall with extra steps",
+        "There is no spoon",
+        "Why do Java developers wear glasses? Because they can't C#",
+        "All code is legacy code",
+        "The cloud is just someone else's computer",
+        "Thank you, Stack Overflow",
+        "When in doubt, blame the user",
+        "Why do sin and tan work? Just cos",
+        "My cat is the best pair programmer",
+    ];
+
+    const typingSpeed = 100; // Speed of typing in milliseconds
+    const deletingSpeed = 50; // Speed of deleting in milliseconds
+    const delayBetweenVariants = 3000; // Delay before starting to delete the text
+
+    let currentIndex = 0;
+    let isDeleting = true;
+    const logoText = document.querySelector(".logo-text");
+    let currentText = logoText?.textContent || '';
+
+    function handleTyping() {
+        if (!logoText) return;
+
+        if (isDeleting) {
+            // Remove the last character from the text
+            currentText = currentText.substring(0, currentText.length - 1);
+        } else {
+            // Add the next character to the text
+            currentText = random_texts[currentIndex]!.substring(0, currentText.length + 1);
+        }
+
+        // Set the text of the logo
+        logoText.textContent = currentText;
+
+        // If the text is fully typed, queue the deletion
+        if (!isDeleting && currentText === random_texts[currentIndex]) {
+            setTimeout(() => {
+                isDeleting = true;
+                setTimeout(handleTyping, deletingSpeed);
+            }, delayBetweenVariants);
+        }
+        // If the text is fully deleted, move to the next variant
+        else if (isDeleting && currentText === '') {
+            isDeleting = false;
+
+            // Choose a random variant
+            currentIndex = Math.floor(Math.random() * random_texts.length);
+
+            setTimeout(handleTyping, typingSpeed);
+        }
+        // Otherwise, continue typing or deleting
+        else {
+            setTimeout(handleTyping, isDeleting ? deletingSpeed : typingSpeed);
+        }
+    }
+
+    handleTyping();
+</script>
