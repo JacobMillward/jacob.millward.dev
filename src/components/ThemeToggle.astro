@@ -18,7 +18,6 @@
     .theme-toggle {
         --icon-fill: var(--secondary-color);
         --icon-fill-hover: var(--font-color);
-        
         cursor: pointer;
     }
     .theme-toggle input { display: none; }
@@ -35,9 +34,11 @@
     }
     .theme-toggle:hover path { fill: var(--icon-fill-hover); }
 
-    .sun { display: none; }
-    :global(.light) .sun { display: block; }
-    :global(.light) .moon { display: none; }
+    .theme-toggle .sun { display: none; }
+    .theme-toggle input:checked ~ svg .sun { display: block; }
+    .theme-toggle input:checked ~ svg .moon { display: none; }
+    .theme-toggle input:not(:checked) ~ svg .moon { display: block; }
+    .theme-toggle input:not(:checked) ~ svg .sun { display: none; }
 
     /* Theme Variables */
     :root {
@@ -46,18 +47,21 @@
         --global-space: 10px;
         --font-stack: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
         --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+        --primary-color: #62c4ff;
+        --error-color: #ff3c74;
+        --input-style: solid;
+        --display-h1-decoration: none;
+    }
+
+    :root {
         --background-color: #222225;
         --font-color: #e8e9ed;
         --invert-font-color: #222225;
         --secondary-color: #a3abba;
         --tertiary-color: #a3abba;
-        --primary-color: #62c4ff;
-        --error-color: #ff3c74;
         --progress-bar-background: #3f3f44;
         --progress-bar-fill: #62c4ff;
         --code-bg-color: #3f3f44;
-        --input-style: solid;
-        --display-h1-decoration: none;
     }
 
     :root.light {
@@ -67,42 +71,87 @@
         --progress-bar-background: #e0e0e0;
         --code-bg-color: #f5f5f5;
     }
+
+    :root.dark {
+        --background-color: #222225;
+        --font-color: #e8e9ed;
+        --invert-font-color: #222225;
+        --secondary-color: #a3abba;
+        --tertiary-color: #a3abba;
+        --progress-bar-background: #3f3f44;
+        --progress-bar-fill: #62c4ff;
+        --code-bg-color: #3f3f44;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --background-color: #222225;
+            --font-color: #e8e9ed;
+            --invert-font-color: #222225;
+            --secondary-color: #a3abba;
+            --tertiary-color: #a3abba;
+            --progress-bar-background: #3f3f44;
+            --progress-bar-fill: #62c4ff;
+            --code-bg-color: #3f3f44;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --background-color: #ffffff;
+            --font-color: #000000;
+            --invert-font-color: #ffffff;
+            --progress-bar-background: #e0e0e0;
+            --code-bg-color: #f5f5f5;
+        }
+    }
 </style>
 
 <script>
+    enum Theme {
+        Light = 'light',
+        Dark = 'dark',
+    }
+
     const themeToggle = document.getElementById('themeToggle') as HTMLInputElement;
     const rootElement = document.documentElement;
 
     function getStoredTheme() {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'light' || theme === 'dark') {
-            return theme;
+        const stored = localStorage.getItem('theme');
+        if (stored === Theme.Light || stored === Theme.Dark) {
+            return stored;
         }
-
         return undefined;
     }
 
-    function applyTheme(theme: 'light' | 'dark') {
-        rootElement.classList.toggle('light', theme === 'light');
+    function applyTheme(theme: Theme) {
+        const inverseTheme = theme === Theme.Light ? Theme.Dark : Theme.Light;
+        rootElement.classList.remove(inverseTheme);
+        rootElement.classList.add(theme);
     }
 
-    rootElement.addEventListener('DOMContentLoaded', () => {
+    function getPreferredTheme() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.Dark : Theme.Light;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
         const storedTheme = getStoredTheme();
-        if (storedTheme) {
-            applyTheme(storedTheme);
-            themeToggle.checked = storedTheme === 'light';
-        }
+        const theme = storedTheme ?? getPreferredTheme();
+        applyTheme(theme);
+        themeToggle.checked = theme === Theme.Light;
     });
 
     themeToggle.addEventListener('change', () => {
-        const theme = themeToggle.checked ? 'light' : 'dark';
+        const theme = themeToggle.checked ? Theme.Light : Theme.Dark;
         applyTheme(theme);
         localStorage.setItem('theme', theme);
     });
 
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (getStoredTheme() === undefined) {
-            applyTheme(e.matches ? 'dark' : 'light');
+        if (!getStoredTheme()) {
+            const theme = e.matches ? Theme.Dark : Theme.Light;
+            applyTheme(theme);
+            themeToggle.checked = theme === 'light';
         }
     });
 </script>
