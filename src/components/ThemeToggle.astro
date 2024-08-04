@@ -72,13 +72,37 @@
 <script>
     const themeToggle = document.getElementById('themeToggle') as HTMLInputElement;
     const rootElement = document.documentElement;
-    const theme = localStorage.getItem('theme') || 'dark';
-    
-    rootElement.classList.toggle('light', theme === 'light');
-    themeToggle.checked = theme === 'light';
+
+    function getStoredTheme() {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'light' || theme === 'dark') {
+            return theme;
+        }
+
+        return undefined;
+    }
+
+    function applyTheme(theme: 'light' | 'dark') {
+        rootElement.classList.toggle('light', theme === 'light');
+    }
+
+    rootElement.addEventListener('DOMContentLoaded', () => {
+        const storedTheme = getStoredTheme();
+        if (storedTheme) {
+            applyTheme(storedTheme);
+            themeToggle.checked = storedTheme === 'light';
+        }
+    });
 
     themeToggle.addEventListener('change', () => {
-        rootElement.classList.toggle('light');
-        localStorage.setItem('theme', rootElement.classList.contains('light') ? 'light' : 'dark');
+        const theme = themeToggle.checked ? 'light' : 'dark';
+        applyTheme(theme);
+        localStorage.setItem('theme', theme);
+    });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (getStoredTheme() === undefined) {
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
     });
 </script>
