@@ -108,50 +108,24 @@
 </style>
 
 <script>
-    enum Theme {
-        Light = 'light',
-        Dark = 'dark',
-    }
+    import { addThemeListener, applyTheme, getCurrentTheme, Theme } from "../theme";
 
     const themeToggle = document.getElementById('themeToggle') as HTMLInputElement;
-    const rootElement = document.documentElement;
 
-    function getStoredTheme() {
-        const stored = localStorage.getItem('theme');
-        if (stored === Theme.Light || stored === Theme.Dark) {
-            return stored;
-        }
-        return undefined;
-    }
-
-    function applyTheme(theme: Theme) {
-        const inverseTheme = theme === Theme.Light ? Theme.Dark : Theme.Light;
-        rootElement.classList.remove(inverseTheme);
-        rootElement.classList.add(theme);
-    }
-
-    function getPreferredTheme() {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.Dark : Theme.Light;
-    }
-
+    // Set toggle based on initial theme
     document.addEventListener('DOMContentLoaded', () => {
-        const storedTheme = getStoredTheme();
-        const theme = storedTheme ?? getPreferredTheme();
-        applyTheme(theme);
+        const theme = getCurrentTheme();
         themeToggle.checked = theme === Theme.Light;
     });
 
-    themeToggle.addEventListener('change', () => {
-        const theme = themeToggle.checked ? Theme.Light : Theme.Dark;
-        applyTheme(theme);
-        localStorage.setItem('theme', theme);
+    // Update toggle based on theme changes
+    addThemeListener((theme) => {
+        themeToggle.checked = theme === Theme.Light;
     });
 
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!getStoredTheme()) {
-            const theme = e.matches ? Theme.Dark : Theme.Light;
-            applyTheme(theme);
-            themeToggle.checked = theme === 'light';
-        }
+    // Apply theme on toggle
+    themeToggle.addEventListener('change', () => {
+        const theme = themeToggle.checked ? Theme.Light : Theme.Dark;
+        applyTheme(theme, true);
     });
 </script>

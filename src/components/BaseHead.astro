@@ -61,3 +61,19 @@ const {
 		}
 	}
 </style>
+
+<script>
+	import { applyTheme, getCurrentTheme, getStoredTheme, Theme } from "../theme";
+
+	// Apply the user's preferred theme on page load
+	const theme = getCurrentTheme();
+	applyTheme(theme, false);
+
+	// Listen for changes to the user's preferred color scheme, and apply the appropriate theme
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!getStoredTheme()) {
+            const theme = e.matches ? Theme.Dark : Theme.Light;
+            applyTheme(theme, false);
+        }
+    });
+</script>
