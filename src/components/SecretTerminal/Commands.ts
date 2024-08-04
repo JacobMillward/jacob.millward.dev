@@ -1,7 +1,6 @@
 export type TerminalCommand = (args: string[], termControl: TermControl) => string[];
 
 export interface TermControl {
-    clearTerm: () => void;
     exitTerm: () => void;
 }
 
@@ -36,5 +35,5 @@ export const CommandMap: Record<string, TerminalCommand> = {
             `--- Session terminated ${new Date().toUTCString()} ---`,
         ];
     },
-    
+
 };
