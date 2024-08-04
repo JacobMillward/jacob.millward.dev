@@ -1,0 +1,30 @@
+.term {
+  --terminal-height: 50%;
+  --terminal-color: #00ff00;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: var(--terminal-height);
+  background-color: #000;
+  color: var(--terminal-color);
+  transition: top 0.3s ease-in-out;
+  z-index: 1000;
+  border: 1rem solid #333;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 1rem 1rem;
+  box-sizing: border-box;
+}
+
+.term.visible {
+  top: 0;
+}
+
+.term.hidden {
+  top: calc(-1 * var(--terminal-height));
+}
+
+.term-content {
+  padding: 1rem;
+  overflow: hidden;
+  height: 100%;
+}
