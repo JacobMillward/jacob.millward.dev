@@ -50,17 +50,21 @@ import { SITE_TITLE } from "../consts";
 
     const typingSpeed = 100; // Speed of typing in milliseconds
     const deletingSpeed = 50; // Speed of deleting in milliseconds
-    const delayBetweenVariants = 3000; // Delay before starting to delete the text
+    const delayBetweenVariants = 4000; // Delay before starting to delete the text
 
     let currentIndex = 0;
-    let isDeleting = true;
+    enum State {
+        TYPING,
+        DELETING,
+    }
+    let currentState = State.DELETING
     const logoText = document.querySelector(".logo-text");
     let currentText = logoText?.textContent || '';
 
     function handleTyping() {
         if (!logoText) return;
 
-        if (isDeleting) {
+        if (currentState === State.DELETING) {
             // Remove the last character from the text
             currentText = currentText.substring(0, currentText.length - 1);
         } else {
@@ -72,15 +76,15 @@ import { SITE_TITLE } from "../consts";
         logoText.textContent = currentText;
 
         // If the text is fully typed, queue the deletion
-        if (!isDeleting && currentText === random_texts[currentIndex]) {
+        if (!currentState && currentText === random_texts[currentIndex]) {
             setTimeout(() => {
-                isDeleting = true;
+                currentState = State.DELETING;
                 setTimeout(handleTyping, deletingSpeed);
             }, delayBetweenVariants);
         }
         // If the text is fully deleted, move to the next variant
-        else if (isDeleting && currentText === '') {
-            isDeleting = false;
+        else if (currentState && currentText === '') {
+            currentState = State.TYPING;
 
             // Choose a random variant
             currentIndex = Math.floor(Math.random() * random_texts.length);
@@ -89,9 +93,9 @@ import { SITE_TITLE } from "../consts";
         }
         // Otherwise, continue typing or deleting
         else {
-            setTimeout(handleTyping, isDeleting ? deletingSpeed : typingSpeed);
+            setTimeout(handleTyping, currentState ? deletingSpeed : typingSpeed);
         }
     }
 
-    handleTyping();
+    setTimeout(handleTyping, delayBetweenVariants);
 </script>
