@@ -12,10 +12,10 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^3.1.9",
-    "@astrojs/rss": "^4.0.9",
+    "@astrojs/mdx": "^4.0.8",
+    "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
-    "astro": "^4.16.8",
+    "astro": "^5.2.5",
     "astro-tooltips": "^0.6.2",
     "sharp": "^0.33.4",
     "terminal.css": "^0.7.5",
