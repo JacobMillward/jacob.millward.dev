@@ -34,20 +34,13 @@ export function applyTheme(theme: Theme, shouldStore: boolean) {
 }
 
 /**
- * Get the preferred theme based on the user's system preferences.
- */
-export function getPreferredTheme() {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.Dark : Theme.Light;
-}
-
-/**
  * Get the theme that should be used on the site.
  * This is the current theme if it is stored, or the preferred theme otherwise.
  */
 export function getCurrentTheme() {
     const stored = getStoredTheme();
     if (!stored) {
-        return getPreferredTheme();
+        return Theme.Dark;
     }
     return stored;
 }
