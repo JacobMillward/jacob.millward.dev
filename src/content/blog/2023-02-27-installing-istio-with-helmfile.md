@@ -2,7 +2,7 @@
 title: "Installing Istio With a Helmfile"
 description: "A guide to installing Istio on Kubernetes using Helmfile"
 pubDate: 2023-02-27
-tags: ["infrastructure", "istio", "helmfile"]
+tags: ["infrastructure", "istio", "helmfile", "declarative"]
 ---
 
 # Intro
