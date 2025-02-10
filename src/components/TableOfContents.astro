@@ -26,13 +26,14 @@ const shouldRender = headings.length > 0;
                         let j = i + 1;
                         while (j < headings.length) {
                             const subHeading = headings[j];
-                            if (subHeading && subHeading.depth > currentDepth) {
+                            if (subHeading && subHeading.depth > currentDepth && subHeading.text !== "Footnotes") {
                                 subHeadings.push(subHeading);
                                 j++;
                             } else {
                                 break;
                             }
                         }
+
                         items.push(
                             <li>
                                 <a href={`#${heading.slug}`}>{heading.text}</a>
