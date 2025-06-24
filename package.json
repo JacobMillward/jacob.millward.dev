@@ -25,7 +25,14 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
-      "sharp"
+      "sharp",
+      "workerd"
+    ],
+    "ignoredBuiltDependencies": [
+      "workerd"
     ]
+  },
+  "devDependencies": {
+    "wrangler": "^4.21.1"
   }
 }
