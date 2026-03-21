@@ -14,7 +14,7 @@ const { title, pubDate, updatedDate, description, tags } = post.data;
 <article class="terminal-card">
     <header>
         <h2>
-            <a href={`/posts/${post.slug}`}>{title}</a>
+            <a href={`/posts/${post.id}`}>{title}</a>
         </h2>
     </header>
     <div class="card-body">
@@ -43,7 +43,7 @@ const { title, pubDate, updatedDate, description, tags } = post.data;
 
         </dl>
 
-        <a class="btn btn-default" href={`/posts/${post.slug}`}>Read more</a>
+        <a class="btn btn-default" href={`/posts/${post.id}`}>Read more</a>
     </div>
 </article>
 

@@ -26,5 +26,5 @@ tags: []
 draft: true
 ---" > $filename
 
-code "$filename"
+$EDITOR "$filename"
 popd > /dev/null
