@@ -25,6 +25,27 @@ tags:
         | sort -rn \
         | awk '{printf "%3d  %s\n", $1, $2}'
 
+# Check prerequisites and install dependencies
+bootstrap:
+    #!/usr/bin/env bash
+    set -e
+    missing=0
+    for cmd in pnpm yq; do
+        if command -v "$cmd" &>/dev/null; then
+            echo "  ✔ $cmd ($($cmd --version))"
+        else
+            echo "  ✘ $cmd"
+            missing=1
+        fi
+    done
+    if [ "$missing" -ne 0 ]; then
+        echo "Some required tools are missing."
+        exit 1
+    fi
+    echo ""
+    echo "Installing dependencies..."
+    pnpm install --frozen-lockfile
+
 # Run the development server
 dev:
     pnpm run dev

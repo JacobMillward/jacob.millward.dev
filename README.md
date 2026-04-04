@@ -10,9 +10,9 @@ It is a site built with [Astro](https://astro.build/). Deployed to Cloudflare Pa
 - [pnpm](https://pnpm.io/)
 - [Just](https://github.com/casey/just)
 
-Pull the repo, and install the dependencies:
+Make sure everything is installed, and install deps:
 ```bash
-pnpm install
+just bootstrap
 ```
 
 You can start the development server with:
