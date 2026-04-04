@@ -8,6 +8,7 @@ It is a site built with [Astro](https://astro.build/). Deployed to Cloudflare Pa
 ### Prerequisites
 - [Node.js](https://nodejs.org/en/)
 - [pnpm](https://pnpm.io/)
+- [Just](https://github.com/casey/just)
 
 Pull the repo, and install the dependencies:
 ```bash
@@ -16,7 +17,10 @@ pnpm install
 
 You can start the development server with:
 ```bash
-pnpm dev
+just dev
 ```
 
-To create new a new post create a new markdown file in the `src/content/posts` directory.
+For a new post:
+```bash
+just post "My New Post"
+```
