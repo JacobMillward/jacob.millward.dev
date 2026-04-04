@@ -49,6 +49,15 @@ const {
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 
+<script is:inline>
+	// Blocking script to set theme class before first paint, preventing flash
+	(function() {
+		var stored = localStorage.getItem('theme');
+		var theme = (stored === 'light' || stored === 'dark') ? stored : 'dark';
+		document.documentElement.classList.add(theme);
+	})();
+</script>
+
 <Tooltips interactive={false} delay={[500, 500]} />
 <style is:global>
 	.tippy-box[data-theme="default"] {
@@ -63,13 +72,9 @@ const {
 </style>
 
 <script>
-	import { applyTheme, getCurrentTheme, getStoredTheme, Theme } from "../theme";
+	import { getStoredTheme, Theme, applyTheme } from "../theme";
 
-	// Apply the user's preferred theme on page load
-	const theme = getCurrentTheme();
-	applyTheme(theme, false);
-
-	// Listen for changes to the user's preferred color scheme, and apply the appropriate theme
+	// Listen for changes to the user's preferred color scheme
 	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
         if (!getStoredTheme()) {
             const theme = e.matches ? Theme.Dark : Theme.Light;
