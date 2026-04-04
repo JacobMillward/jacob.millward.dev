@@ -12,6 +12,14 @@ post title="":
         title="{{ title }}"
     fi
     filename="src/content/blog/$date-$(echo $title | tr ' ' '-').md"
+    if [ -e "$filename" ]; then
+        echo "File already exists: $filename"
+        read -n1 -p "  Overwrite? [y/N] " confirm
+        echo
+        if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+            exit 1
+        fi
+    fi
     echo "Creating new post at $filename"
     printf '%s\n' '---' "title: \"$title\"" 'description:' "pubDate: $date" 'tags: []' 'draft: true' '---' > "$filename"
     ${EDITOR:-vim} "$filename"
